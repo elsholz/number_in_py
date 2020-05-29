@@ -1,2 +1,2 @@
 #!/bin/bash
-wget -i ./pi_source.txt -O pi.zip
+wget --continue -i ./pi_source.txt -O pi.zip
