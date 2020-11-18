@@ -43,19 +43,15 @@ with zfile.open(finfo) as pi:
                 l = colorama.ansi.Back.GREEN + ' '*(50+len(number)) + colorama.ansi.Back.RESET
                 print('\n')
                 print(l)
-                print(colorama.ansi.Fore.GREEN,'Your Number was found in Pi!', 
+                print(colorama.ansi.Fore.GREEN,f'Your Number was found in Pi! The probability for that to\nhappen is roughly {round((1 - (1 - 0.1 ** len(str(number))) ** (res+1))*100, 4)}%!', 
                         colorama.ansi.Fore.RESET, sep='')
-                print(f'Index at that {number} starts is: {",".join([str(res)[i:i+3] for i in range(0,len(str(res)), 3)])}.')
-                #print(neighbors)
+                print(f'The index that {number} starts at is: {res:,}.\nThat is the decimal digits {res+1:,} to {res+len(number)+1:,}.')
                 starting_point = 25 - len(number) // 2
                 ending_point = starting_point+len(number)
                 print(colorama.ansi.Fore.YELLOW, neighbors[:starting_point].decode('utf-8'), 
                         colorama.ansi.Fore.MAGENTA, neighbors[starting_point:ending_point].decode('utf-8'),  
                     colorama.ansi.Fore.RESET, colorama.ansi.Fore.YELLOW, neighbors[ending_point:].decode('utf-8'), colorama.ansi.Fore.RESET, sep='')
-                #print('info: res:', res, 'base_index',base_index, 'center_ind',center_ind, 'startting_point',starting_point, 'ending_point', ending_point, 'len phonenumber',len(phone_number))
                 print(colorama.ansi.Fore.GREEN, ' '*starting_point, '^', ' '*(len(number)-2), '^', sep='')
-                #print(f'{res}'+(1-res))
-                #print(f'debug:\n{(previous_content+content).decode("utf-8")}')
                 print(l)
                 print()
                 quit()
